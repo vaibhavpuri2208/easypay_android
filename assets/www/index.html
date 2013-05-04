@@ -21,8 +21,7 @@
 		<script type="text/javascript" charset="utf-8">
 	
 			function onDeviceReady() {
-				
-				nfc.addNdefListener(writeTag,successTagWrite,failedTagWrite);
+			    nfc.addNdefListener(write_payload,successTagRead,failedTagRead);
 				}
 
 
@@ -32,9 +31,17 @@
     </script>
   </head>
 
-  <body onload="onBodyLoad();">
+  	<body onload="onBodyLoad();">
 		<h1>Easy Pay</h1>
-		<p id="appInfo">Waiting for the alert to pop-up</p>
+		<center>
+		<form name="topup_form" onsubmit="onBodyLoad();">
+			Top Up Value:<br>
+			<input type="text" name="topup_value" value="0" style="text-align:center"><br>
+			<input type="submit" value="Add Credit">
+		</form>
+		</center>
+
+
 	</body>
 
 </html>
