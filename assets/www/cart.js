@@ -41,22 +41,15 @@ function add_to_cart(increment){
 
 function find_payload(nfcEvent){
 
-  	navigator.notification.alert("Amount to debit: " + total);
 
 	some_value = nfcEvent.tag.ndefMessage[0]["payload"];
 
 	credit = nfc.bytesToString(some_value);
-navigator.notification.alert("Credit Available prior to debit: " + credit);
 
 //	credit = credit.substring(3,credit.length);
 
-  	
-
 	credit = parseFloat(credit);
-
 	credit = credit - total;
-	navigator.notification.alert("Net Balance: " + credit);
-
 
 	var type = "text/plain";
     id = 123;
@@ -66,9 +59,12 @@ navigator.notification.alert("Credit Available prior to debit: " + credit);
 	ndefMessage = [];
     ndefMessage.push(ndefRecord);
     nfc.write(ndefMessage,successTagWrite, failedTagWrite );
-credit = 0;
-total = 0;
+	navigator.notification.alert("Net Balance: " + credit);
+
+	credit = 0;
+	total = 0;
 }
+
 
 
 
