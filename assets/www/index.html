@@ -5,47 +5,40 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<meta name="viewport" id="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		
 		<script type="text/javascript" charset="utf-8" src="phonegap-nfc.js"></script>
-
-
-		
-
 		<script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script> 
-		<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 
-		
-		
+		<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 		
 		<script type="text/javascript" charset="utf-8">
-	
 			function onDeviceReady() {
-			    nfc.addNdefListener(write_payload,successTagRead,failedTagRead);
-				}
-
+		    nfc.addNdefListener(write_payload,successTagRead,failedTagRead);
+			}
 
       function onBodyLoad() {   
-        	document.addEventListener("deviceready", onDeviceReady, false);
+      	document.addEventListener("deviceready", onDeviceReady, false);
       }
     </script>
   </head>
 
-  	<body onload="onBodyLoad();">
-		<h1>Easy Pay</h1>
-		<center>
-		<form name="topup_form" onsubmit="onBodyLoad();">
-			Top Up Value:<br>
-			<input type="text" name="topup_value" value="0" style="text-align:center"><br>
-			<input type="submit" value="Add Credit">
-		</form>
-		
-		<form >
+  <body onload="onBodyLoad();">
+    <div class="container">
+	    <header class="logo">
+        <a href="/"><img src="images/logo1.png" /></a>
+		  </header>
 
-			<button name="button" type="button"><a href="cart.html">Payment Cart</a></button>
-		</form>
-		
-		
-		</center>
-
-
+      <section class="main">
+        <form name="topup_form" onsubmit="onBodyLoad();" class="form-5 form-vert clearfix">
+    			<input type="text" name="topup_value" value="" placeholder="€ 0.00"><br>
+    			<input type="submit" value="Add Credit">
+    		</form>
+        <footer class="b_fixed">
+      	  <ul class="form_footer_buttons">
+      		  <li><a href="cart.html">Payment Cart</a></li>
+      	  </ul>
+      	</footer>
+      </section>
+    </div>
 	</body>
-
 </html>
 

@@ -1,22 +1,27 @@
 
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+<link rel="stylesheet" href="style.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+<!-- <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script> -->
 <script type="text/javascript" charset="utf-8" src="phonegap-nfc.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script> 
 
 <script type="text/javascript" charset="utf-8" src="cart.js"></script> 
-		<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 
+<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 
 
 
-<h1>Cart</h1>
-
-<button  id="beers" data-value="1.20" data-type="beers">Beer (EUR 1.2)</button>
-
-<button id="pizza" data-value="4.30" data-type="pizza">Pizza (EUR 4.3)</button>
-
-<button id="burger" data-value="3.80" data-type="burger">Burger (EUR 3.8)</button>
-
-
-<button id="pay">Pay</button>
-
+<div class="container">
+  <header class="logo">
+    <a href="/"><img src="images/logo1.png" /></a>
+  </header>
+  
+  <section class="main">
+    <h1>Cart</h1>
+    
+    <a href="#" id="beers" data-value="2.00" data-type="beers" class="btn btn-primary btn-large btn-block">Beer (&euro; 2.00)</a>
+    <button id="pizza" data-value="4.00" data-type="pizza">Pizza (&euro; 4.00)</button>
+    <button id="burger" data-value="3.00" data-type="burger">Burger (&euro; 3.00)</button>
+    <button id="sausage" data-value="2.00" data-type="burger">Sausage (&euro; 2.00)</button>
+    
+    <button id="pay">Pay</button>
+  </section>
+</div>
