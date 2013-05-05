@@ -1,28 +1,3 @@
-
-total = 0
-<script type="text/javascript" charset="utf-8" src=""></script>
-
-
-function add_to_cart(increment){
-
-
-  total = total +parseFloat(increment);
-
-}
-
-
-function decodePayload(payload) {
-    
-
-
-        var langCodeLength = payload[0],
-        text = payload.slice((1 + langCodeLength), payload.length);
-        payload = nfc.bytesToString(text);
-
-    
-    return payload;
-}
-
 window.onload = function ()
  {
    
@@ -34,41 +9,79 @@ window.onload = function ()
 	beers.onclick = function(){add_to_cart(beers.getAttribute('data-value'));}
 	pizza.onclick = function(){add_to_cart(pizza.getAttribute('data-value'));}
 	burger.onclick = function(){add_to_cart(burger.getAttribute('data-value'));}
-	pay.onclick = function(){debit_tag(total);}
+	pay.onclick = function(){debit_tag();}
 
 
 	var imported = document.createElement('script');
 	imported.src = 'phonegap-nfc.js';
 	document.head.appendChild(imported);
 
+	
+credit = 0;
+total = 0;
+
+
 }
+
+
+
+
+function add_to_cart(increment){
+
+
+  total = total +parseFloat(increment);
+
+}
+
+
+
 
 
 
 
 function find_payload(nfcEvent){
 
-some_value = nfcEvent.tag.ndefMessage[0]["payload"];
-test = decodeMessage(nfcEvent.tag.ndefMessage[0])
+  	navigator.notification.alert("Amount to debit: " + total);
 
-navigator.notification.alert(test);
-navigator.notification.vibration(100);
+	some_value = nfcEvent.tag.ndefMessage[0]["payload"];
 
-navigator.notification.alert(JSON.stringify(nfcEvent.tag));
+	credit = nfc.bytesToString(some_value);
+navigator.notification.alert("Credit Available prior to debit: " + credit);
 
-credit = nfc.bytesToString(some_value);
+//	credit = credit.substring(3,credit.length);
 
-navigator.notification.alert(credit);
+  	
+
+	credit = parseFloat(credit);
+
+	credit = credit - total;
+	navigator.notification.alert("Net Balance: " + credit);
+
+
+	var type = "text/plain";
+    id = 123;
+
+	payload =  credit.toString();
+    ndefRecord = ndef.record(ndef.TNF_MIME_MEDIA, type, id, payload);
+	ndefMessage = [];
+    ndefMessage.push(ndefRecord);
+    nfc.write(ndefMessage,successTagWrite, failedTagWrite );
+credit = 0;
+total = 0;
 }
 
 
 
-function debit_tag(total){
+function debit_tag(){
 //first read tag
 	nfc.addNdefListener(find_payload,successTagRead,failedTagRead);
 
 
-//then write tag
+	
+	
+	
+	
+	
 	
 
 }
