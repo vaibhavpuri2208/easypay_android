@@ -9,6 +9,8 @@ window.onload = function ()
 	beers.onclick = function(){add_to_cart(beers.getAttribute('data-value'));}
 	pizza.onclick = function(){add_to_cart(pizza.getAttribute('data-value'));}
 	burger.onclick = function(){add_to_cart(burger.getAttribute('data-value'));}
+	sausage.onclick = function(){add_to_cart(sausage.getAttribute('data-value'));}
+
 	pay.onclick = function(){debit_tag();}
 
 
@@ -60,12 +62,32 @@ function find_payload(nfcEvent){
     ndefMessage.push(ndefRecord);
     nfc.write(ndefMessage,successTagWrite, failedTagWrite );
 	navigator.notification.alert("Net Balance: " + credit);
-
+	//post_request(total);
 	credit = 0;
 	total = 0;
 }
 
+function post_request(total)
+{
+$.ajax({
+            url: 'http://mysubdomain.mydomain.com/index.php',
+            data: {}, // your data (if any) should go here
+            dataType: 'application/json' // or whatever you expect back
+            success: function(data) {
+                console.log('In callback');
+                console.log(data);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
 
+
+
+
+
+
+}
 
 
 function debit_tag(){
@@ -81,4 +103,5 @@ function debit_tag(){
 	
 
 }
+
 
