@@ -1,4 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:100,400,700);
+/* @import url(http://fonts.googleapis.com/css?family=Lato:100,400,700); */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 /* GLOBALS */
 *,
 *:after,
@@ -20,13 +23,13 @@
 }
 
 
-/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+/* Clearfix hack by Nicolas Gallagher */
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after { clear: both; }
 
 /* HMTL */
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #f0f0f0;
   background: #1abc9c;
   background: #2C3E50;
@@ -425,3 +428,45 @@ a {
 	.left { float: left; }
 	.right { float: right; }
 	.clear { clear: both; }
+	
+	
+	
+	
+	
+/*
+ *** FORM GENERAL ***
+ */
+input[type="submit"] {
+  margin: 0;
+  height: 50px;
+  line-height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  border: none;
+  background: #72CCA7;
+  -webkit-transition:all 200ms ease-in;
+  -o-transition:all 200ms ease-in;
+  -moz-transition:all 200ms ease-in;
+  transition:all 200ms ease-in;
+}
+input[type="submit"]:hover {
+  background: #1ABC9C;
+  cursor: pointer;
+}
+
+/*
+ *** FORM LIST ***
+ */
+.form_list input[type="submit"] {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.05em;
+}
+#add_credit input[type="submit"] {
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid #2C3E50;
+}
+#payment_cart input[type="submit"] {
+  border-radius: 0 0 6px 6px;
+  border-top: 1px solid #2C3E50;
+}
