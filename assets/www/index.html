@@ -11,13 +11,15 @@
 		<script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script> 
 		<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 		
 		<script type="text/javascript" charset="utf-8">
-			function onDeviceReady() {
-		    nfc.addNdefListener(write_payload,successTagRead,failedTagRead);
-			}
+	
+		function onDeviceReady() {
+		//do nothing	
+		}
+					
+      	function onBodyLoad() {   
+      		document.addEventListener("deviceready", onDeviceReady, false);
+		}
 
-      function onBodyLoad() {   
-      	document.addEventListener("deviceready", onDeviceReady, false);
-      }
     </script>
   </head>
 
@@ -28,17 +30,20 @@
 		  </header>
 
       <section class="main">
-        <form name="topup_form" onsubmit="onBodyLoad();" class="form-5 form-vert clearfix">
-    			<input type="text" name="topup_value" value="" placeholder="€ 0.00"><br>
-    			<input type="submit" value="Add Credit">
-    		</form>
+        
+        
+       <form action='credit.html'>   <button id="loadCredit" class="" type="submit">Load Credit</button></form>
+          <button id="chargeGoods" class="btn btn-primary btn-large btn-block">Charge for Goods</a>
+          <button id="checkCredit" class="btn btn-primary btn-large btn-block">Check Credit</a>
+                            
+    		
         <footer class="b_fixed">
       	  <ul class="form_footer_buttons">
       		  <li><a href="cart.html">Payment Cart</a></li>
       	  </ul>
       	</footer>
       </section>
-    </div>
+	</div>
 	</body>
 </html>
 

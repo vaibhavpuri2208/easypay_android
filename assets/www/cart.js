@@ -29,79 +29,68 @@ total = 0;
 
 
 function add_to_cart(increment){
-
-
   total = total +parseFloat(increment);
-
 }
 
 
 
-
-
-
-
-function find_payload(nfcEvent){
-
-
-	some_value = nfcEvent.tag.ndefMessage[0]["payload"];
-
-	credit = nfc.bytesToString(some_value);
-
-//	credit = credit.substring(3,credit.length);
-
-	credit = parseFloat(credit);
-	credit = credit - total;
-
+function add_credit(credit){
+	message = document.getElementById('user_messages');
+	message.innerHTML = 'Awaiting your tap...';
+	
 	var type = "text/plain";
     id = 123;
-
-	payload =  credit.toString();
-    ndefRecord = ndef.record(ndef.TNF_MIME_MEDIA, type, id, payload);
+	total =  getURLParameter("topup_value");
+   
+   	payload = parseFloat(total) + credit;  
+	payload = payload.toString();
+	    	
+	
+  	//ndefRecord = ndef.record(ndef.TNF_MIME_MEDIA, type, id, payload.valueOf());
+	ndefRecord = ndef.textRecord(payload);
 	ndefMessage = [];
     ndefMessage.push(ndefRecord);
     nfc.write(ndefMessage,successTagWrite, failedTagWrite );
-	navigator.notification.alert("Net Balance: " + credit);
-	//post_request(total);
-	credit = 0;
-	total = 0;
-}
+	navigator.notification.alert("Total Credit in Tag: "+ payload);
+	
+    message.innerHTML = '';
+    }
 
-function post_request(total)
+function parse_credit_string(string_to_parse)
 {
-$.ajax({
-            url: 'http://mysubdomain.mydomain.com/index.php',
-            data: {}, // your data (if any) should go here
-            dataType: 'application/json' // or whatever you expect back
-            success: function(data) {
-                console.log('In callback');
-                console.log(data);
-            },
-            error: function(error) {
-                console.log(error);
-            }
-        });
+	parsed_string = string_to_parse.substring(3,credit.length);
+	return parsed_string;
+}
 
-
-
-
-
-
+function error_handle_string(test_value)
+{
+	
+	if (isNaN(parseFloat(test_value))||test_value==="")
+	{
+		test_value ="0";
+		navigator.notification.alert("error detected");	
+	}
+return test_value;
 }
 
 
-function debit_tag(){
-//first read tag
-	nfc.addNdefListener(find_payload,successTagRead,failedTagRead);
 
+function current_credit(nfcEvent){
 
-	
-	
-	
-	
-	
-	
+	some_value = nfcEvent.tag.ndefMessage[0]['payload'];
 
+	credit = nfc.bytesToString(some_value);
+	
+	credit = parse_credit_string(credit);
+		
+	credit = error_handle_string(credit);	
+
+	add_credit(parseFloat(credit));
+	
 }
+
+
+
+
 
 
