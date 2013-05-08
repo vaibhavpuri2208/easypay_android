@@ -28,9 +28,11 @@
 
       <section class="main">
         <form name="topup_form" onsubmit="onDeviceReady();" class="form-5 form-vert clearfix">
-    			<input type="text" name="topup_value" value="" placeholder="€ 0.00"><br>
+    			<input id="add_credit_bt" type="text" name="topup_value" value="" placeholder="0.00"><br>
     			<input type="submit" name="add_credit_button" value="Add Credit" >
       	</form>
+      	
+      	<h1 id="user_messages" class="t_center m_bottom"></h1>
       	
       	<form id="add_credit" name="checkCredit_form" action="check_credit.html" class="form_list">
       		<input type="submit" name="check_credit_button" value="Check Credit" >
@@ -39,7 +41,6 @@
       		<input type="submit" name="cart_button" value="Payment Cart" >
       	</form>    
       </section>
-    	<h4 id="user_messages"></h4>
     </div>	
 </body>
 </html>

@@ -61,6 +61,8 @@ a {
 
 .t_center { text-align: center; }
 
+.m_bottom { margin-bottom: 15px; }
+
 /* Login */
 .form-5 {
   max-width: 280px;
@@ -344,7 +346,15 @@ a {
   transform: none;
 }
 
-
+#add_credit_bt {
+  padding-left: 30px !important;
+}
+#add_credit_bt:before {
+  content: "€";
+  position: absolute;
+  top: 12px;
+  left: 11px;
+}
 
 
 
@@ -466,6 +476,9 @@ button.form_list {
   margin-bottom: 20px;
   color: #E74C3C;
   font-size: 2em;
+}
+#user_messages {
+  color: #2ECC71;
 }
 
 /*
