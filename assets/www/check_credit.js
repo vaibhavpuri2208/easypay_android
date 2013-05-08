@@ -1,12 +1,6 @@
 window.onload = function ()
  {
-   current_credit=0;
 
-
-}
-
-function initialise_variables(){
-current_credit=0;
 
 }
 
@@ -20,10 +14,6 @@ tryAgainBox.innerHTML = "Tap another...";
 
 
 }
-
-
-
-
 
 
 function check_credit(nfcEvent){
