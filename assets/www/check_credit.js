@@ -15,8 +15,8 @@ function update_message_box(message)
 {
 messageBox = document.getElementById('creditBox');
 
-messageBox.innerHTML= "Current credit on this wristband is:" +  message;
-tryAgainBox.innerHTML = "Tap another band to check credit";
+messageBox.innerHTML= "Current credit: \n" +  message;
+tryAgainBox.innerHTML = "Tap another...";
 
 
 }

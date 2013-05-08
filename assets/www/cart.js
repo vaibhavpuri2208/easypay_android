@@ -19,8 +19,6 @@ window.onload = function ()
 	document.head.appendChild(imported);
 
 	
-credit = 0;
-total = 0;
 
 
 }
