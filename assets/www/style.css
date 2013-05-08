@@ -12,6 +12,14 @@
   margin: 0;
 }
 
+
+.black-color{
+
+  color:black;
+
+}
+
+
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after { clear: both; }
@@ -55,6 +63,7 @@ a {
   position: relative;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0,0,0,0.1), 0 3px 2px rgba(0,0,0,0.1);
+  
 }
 
 .form-5 p {
@@ -86,6 +95,7 @@ a {
     color: #10A296;
     text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     font-size: 20px;
+    font-weight:bold; /*added by Vaib*/
 }
 
 .form-5 input[type=text]:first-child {
@@ -302,7 +312,8 @@ a {
   float: none;
   border-radius: 0 0 5px 5px;
   border-left: none;
-  color: #fff;
+  color: #000;/*added by Vaib*/
+  font-weight:bold; 	/*added by Vaib*/	  
   font-size: 1.1em;
   -webkit-transform: none;
   -moz-transform: none;

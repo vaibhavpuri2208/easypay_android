@@ -1,5 +1,3 @@
-<!DOCTYPE HTML>
-
 <html>
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -10,47 +8,42 @@
 		<script type="text/javascript" charset="utf-8" src="phonegap-nfc.js"></script>
 		<script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script> 
 		<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 		
+		<script type="text/javascript" charset="utf-8" src="add_credit.js"></script> 		
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
+		
 		<script type="text/javascript" charset="utf-8">
-	
-		function onDeviceReady() {
-		//do nothing	
-		}
-					
-      	function onBodyLoad() {   
-      		document.addEventListener("deviceready", onDeviceReady, false);
-		}
 
+
+		function onDeviceReady() {
+			nfc.addNdefListener(current_credit,successTagRead,failedTagRead);
+		}		
+
+
+
+      	function onBodyLoad() {   
+      		document.addEventListener("deviceready", onDeviceReady, true);			
+      	}
+		
+		
+		
     </script>
   </head>
-
   <body onload="onBodyLoad();">
-    <div class="container">
-	    <header class="logo">
-        <a href="/"><img src="images/logo1.png" /></a>
-		  </header>
 
-      <section class="main">
-        
-        
-        
-       <form  action="add_credit.html" class="form-5 form-vert clearfix">
+        <form name="topup_form" onsubmit="onDeviceReady();" class="form-5 form-vert clearfix">
+    			<input type="text" name="topup_value" value="" placeholder="€ 0.00"><br>
     			<input type="submit" name="add_credit_button" value="Add Credit" >
     	</form>
     	
-    	<form  action="check_credit.html" class="form-5 form-vert clearfix ">
+    	<form name="checkCredit_form" action="check_credit.html" class="form-5 form-vert clearfix ">
     			<input type="submit" name="check_credit_button" value="Check Credit" >
     	</form>
     	
     	
-    	                     
+    	
+    	
     		
-        <footer class="b_fixed">
-      	  <ul class="form_footer_buttons">
-      		  <li><a href="cart.html">Payment Cart</a></li>
-      	  </ul>
-      	</footer>
-      </section>
-	</div>
-	</body>
+    	<h4 id="user_messages"></p>	
+</body>
 </html>
-
