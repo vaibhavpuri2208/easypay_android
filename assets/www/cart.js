@@ -1,5 +1,13 @@
 cartValue = 0;
 
+function refreshCart(){
+	cartValue =0;
+	cartBox = document.getElementById('cartValue');
+  	cartBox.innerHTML = "Cart Empty"; 
+}
+
+
+
 function debit_tag(credit){
 	creditAvail = parseFloat(credit);
 	if (creditAvail<cartValue)
@@ -53,7 +61,7 @@ function initialiseIds()
 	pizza = document.getElementById('pizza');
 	burger = document.getElementById('burger');
 	pay= document.getElementById('pay')
-	
+	refresh = document.getElementById('refreshLink');	
 	}
 	
 function registerEvents() {
@@ -62,6 +70,7 @@ function registerEvents() {
 	pizza.onclick = function(){add_to_cart(pizza.getAttribute('data-value'));}
 	burger.onclick = function(){add_to_cart(burger.getAttribute('data-value'));}
 	sausage.onclick = function(){add_to_cart(sausage.getAttribute('data-value'));}
+	refresh.onclick = refreshCart;
 	document.addEventListener("deviceready", onDeviceReady, true);
 
 
