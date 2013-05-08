@@ -12,37 +12,34 @@
 		<script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
 		
 		<script type="text/javascript" charset="utf-8">
-
-
-		function onDeviceReady() {
-			nfc.addNdefListener(current_credit,successTagRead,failedTagRead);
-		}		
-
-
-
-      	function onBodyLoad() {   
-      		document.addEventListener("deviceready", onDeviceReady, true);			
-      	}
-		
-		
-		
+  		function onDeviceReady() {
+  			nfc.addNdefListener(current_credit,successTagRead,failedTagRead);
+  		}		
+    	function onBodyLoad() {   
+    		document.addEventListener("deviceready", onDeviceReady, true);			
+    	}	
     </script>
   </head>
   <body onload="onBodyLoad();">
+    <div class="container">
+	    <header class="logo">
+        <a href="index.html"><img src="images/logo1.png" /></a>
+		  </header>
 
+      <section class="main">
         <form name="topup_form" onsubmit="onDeviceReady();" class="form-5 form-vert clearfix">
     			<input type="text" name="topup_value" value="" placeholder="€ 0.00"><br>
     			<input type="submit" name="add_credit_button" value="Add Credit" >
-    	</form>
-    	
-    	<form name="checkCredit_form" action="check_credit.html" class="form-5 form-vert clearfix ">
-    			<input type="submit" name="check_credit_button" value="Check Credit" >
-    	</form>
-    	
-    	
-    	
-    	
-    		
-    	<h4 id="user_messages"></p>	
+      	</form>
+      	
+      	<form id="add_credit" name="checkCredit_form" action="check_credit.html" class="form_list">
+      		<input type="submit" name="check_credit_button" value="Check Credit" >
+      	</form>
+      	<form id="payment_cart" action="cart.html" class="form_list">
+      		<input type="submit" name="cart_button" value="Payment Cart" >
+      	</form>    
+      </section>
+    	<h4 id="user_messages"></h4>
+    </div>	
 </body>
 </html>
