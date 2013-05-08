@@ -1,40 +1,49 @@
+<head>
+	<link rel="stylesheet" href="style.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<!-- <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script> -->
+	<script type="text/javascript" charset="utf-8" src="phonegap-nfc.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script> 
+	<script type="text/javascript" charset="utf-8" src="check_credit.js"></script> 		
+	<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 
+	<script type="text/javascript" charset="utf-8" src="cart.js"></script> 
 
-<link rel="stylesheet" href="style.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<!-- <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script> -->
-<script type="text/javascript" charset="utf-8" src="phonegap-nfc.js"></script>
-<script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script> 
-<script type="text/javascript" charset="utf-8" src="check_credit.js"></script> 		
-
-<script type="text/javascript" charset="utf-8" src="cart.js"></script> 
-<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 
+</head>
 
 
-<div class="container">
-  <header class="logo">
-    //<a href="/"><img src="images/logo1.png" /></a>
-  </header>
+
+<body>
+	<div class="container">
+  		<header class="logo">
+    		//<a href="/"><img src="images/logo1.png" /></a>
+  		</header>
   
-  <section class="main">
-      <div class="">
+  	<section class="main">
+		<div class="">
         <span class="left resource">
-          <button id="beers" data-value="2.00" class="btn btn-primary btn-large btn-block">Beer (&euro; 2.00)</a>
+        	<button id="beers" data-value="2.00" class="btn btn-primary btn-large btn-block">Beer (&euro; 2.00)</a>
         </span>
         <span class="right resource">
-          <button id="pizza" data-value="4.00" class="btn btn-primary btn-large btn-block">Pizza (&euro; 4.00)</a>
+         	<button id="pizza" data-value="4.00" class="btn btn-primary btn-large btn-block">Pizza (&euro; 4.00)</a>
         </span>
         <span class="left resource">
-          <button id="burger" data-value="3.00" class="btn btn-primary btn-large btn-block">Burger (&euro; 3.00)</a>
+        	<button id="burger" data-value="3.00" class="btn btn-primary btn-large btn-block">Burger (&euro; 3.00)</a>
         </span>
         <span class="right resource">
-          <button id="sausage" data-value="2.00"  class="btn btn-primary btn-large btn-block">Sausage (&euro; 2.00)</a>
+        	<button id="sausage" data-value="2.00"  class="btn btn-primary btn-large btn-block">Sausage (&euro; 2.00)</a>
         </span>
     </div>
     
-    <footer class="b_fixed">
-  	  <ul class="form_footer_buttons">
-  		  <li><a href="#" id="pay">Pay</a></li>
-  	  </ul>
-  	</footer>
-  </section>
-</div>
+    
+    <br/><br/><br/>
+    
+    <h2 id="cartValue">Cart Empty</h2>
+    
+    	<footer class="b_fixed">
+  	  		<ul class="form_footer_buttons">
+  		  		<li><a href="#" id="pay">Pay</a></li>
+  	  		</ul>
+  		</footer>
+	  </section>
+
+</body>
