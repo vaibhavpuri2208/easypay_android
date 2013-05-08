@@ -31,6 +31,7 @@ function current_credit(nfcEvent){
 		tag_payload = nfcEvent.tag.ndefMessage[0]['payload'];
 		credit = nfcTagStringTasks(tag_payload);
 		debit_tag(credit);
+		refreshCart();
 		}
 	catch(e)
 		{
@@ -50,7 +51,7 @@ function onDeviceReady(){
 function add_to_cart(increment){  	
   cartValue = cartValue +parseFloat(increment);
   cartBox = document.getElementById('cartValue');
-  cartBox.innerHTML = "Total= " + cartValue.toString();
+  cartBox.innerHTML = "&euro;" + cartValue.toString();
 }
 
 
@@ -62,7 +63,7 @@ function initialiseIds()
 	burger = document.getElementById('burger');
 	pay= document.getElementById('pay')
 	refresh = document.getElementById('refreshLink');	
-	}
+}
 	
 function registerEvents() {
 	
