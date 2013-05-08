@@ -59,6 +59,8 @@ a {
   border-radius: 5px;
 }
 
+.t_center { text-align: center; }
+
 /* Login */
 .form-5 {
   max-width: 280px;
@@ -104,7 +106,7 @@ a {
 .form-5 input[type=text]:first-child {
     border-bottom: 1px solid #fff; /* Fallback */
     border-bottom: 1px solid rgba(245,245,245,0.7);
-    border-radius: 5px 0 0 0;
+    border-radius: 5px 5px 0 0;
 }
 .form-5 input[type=text]:nth-child(2),
 .form-5 input[type=text]:nth-child(3),
@@ -458,7 +460,7 @@ input[type="submit"]:hover {
  *** FORM LIST ***
  */
 .form_list input[type="submit"] {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   font-size: 1.05em;
 }
@@ -469,4 +471,27 @@ input[type="submit"]:hover {
 #payment_cart input[type="submit"] {
   border-radius: 0 0 6px 6px;
   border-top: 1px solid #2C3E50;
+}
+
+
+/*
+ *** IMAGES ***
+ */
+#scan_wristband {
+  width: 280px;
+  height: 160px;
+  background: url(images/scan_wristband1.png) no-repeat center center;
+}
+
+/*
+ *** MESSAGES ***
+ */
+#creditBox {
+  color: #2ECC71;
+  font-size: 3em;
+}
+#tryAgainBox {
+  margin-bottom: 20px;
+  color: #E74C3C;
+  font-size: 2em;
 }

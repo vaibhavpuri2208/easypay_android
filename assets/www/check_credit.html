@@ -9,51 +9,39 @@
 		<script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script> 
 		<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 		
 		<script type="text/javascript" charset="utf-8" src="add_credit.js"></script> 		
-
 		<script type="text/javascript" charset="utf-8" src="check_credit.js"></script> 		
-
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
 		
 		<script type="text/javascript" charset="utf-8">
-
-
-		function onDeviceReady() {
-			nfc.addNdefListener(check_credit,successTagRead,failedTagRead);
-		}		
-
-
-
-      	function onBodyLoad() {   
-      		document.addEventListener("deviceready", onDeviceReady, true);			
-      	}
-		
-		
-		
+  		function onDeviceReady() {
+  			nfc.addNdefListener(check_credit,successTagRead,failedTagRead);
+  		}		
+    	function onBodyLoad() {   
+    		document.addEventListener("deviceready", onDeviceReady, true);			
+    	}
     </script>
   </head>
   <body onload="onBodyLoad();">
+    <div class="container">
+	    <header class="logo">
+        <a href="index.html"><img src="images/logo1.png" /></a>
+		  </header>
 
-      <center><h1>Scan a Wristband</h4></center>
-    	
-    	
-    	
-    		
-    	<h1 id="creditBox"></h1>
-    	
-    	<br/><br/>	
-    	<h2 id="tryAgainBox"></h2>	
-
- 		<form  action="add_credit.html" class="form-5 form-vert clearfix">
-    			<input type="submit" name="add_credit_button" value="Add Credit" >
-    	</form>
-    	
-    	<form  action="cart.html" class="form-5 form-vert clearfix ">
-    			<input type="submit" name="check_credit_button" value="Cart" >
-    	</form>
-    	
-
-
-    	
+      <section class="main">
+        
+        <div id="scan_wristband"></div>
+        			
+        <h1 id="creditBox" class="t_center"></h1>
+        <h1 id="tryAgainBox" class="t_center"></h1>		
+    
+     		<form id="add_credit" action="add_credit.html" class="form_list">
+      		<input type="submit" name="add_credit_button" value="Add Credit" >
+      	</form>
+      	<form id="payment_cart" action="cart.html" class="form_list">
+      		<input type="submit" name="check_credit_button" value="Cart" >
+      	</form>
+    	</section>
+    </div>	
 </body>
 </html>
