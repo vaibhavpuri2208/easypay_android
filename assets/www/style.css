@@ -344,43 +344,6 @@ a {
   transform: none;
 }
 
-/* Footer */
-.a_center { text-align: center; }
-
-.b_fixed {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-}
-.form_footer_buttons {
-  font-weight: 400;
-  list-style-type: none;
-}
-.form_footer_buttons li a {
-  position: relative;
-  display: block;
-  padding: 15px 15px;
-  border-bottom: 1px solid #fff; /* Fallback */
-  border-bottom: 1px solid rgba(245,245,245,0.4);
-  background: #72CCA7;
-}
-.form_footer_buttons li a:hover {
-  background: #339966;
-  color: #fff;
-}
-.form_footer_buttons li a:before {
-  content: '>';
-  position: absolute;
-  top: 7px;
-  right: 5px;
-  width: 17px;
-  height: 17px;
-  font: bold 18px/33px "Lato";
-}
-.form_footer_buttons li a:before:hover {
-  color: #fff;
-}
 
 
 
@@ -438,7 +401,7 @@ a {
 /*
  *** FORM GENERAL ***
  */
-input[type="submit"] {
+input[type="submit"], button {
   margin: 0;
   height: 50px;
   line-height: 50px;
@@ -451,7 +414,7 @@ input[type="submit"] {
   -moz-transition:all 200ms ease-in;
   transition:all 200ms ease-in;
 }
-input[type="submit"]:hover {
+input[type="submit"]:hover, button:hover {
   background: #1ABC9C;
   cursor: pointer;
 }
@@ -459,7 +422,7 @@ input[type="submit"]:hover {
 /*
  *** FORM LIST ***
  */
-.form_list input[type="submit"] {
+.form_list input[type="submit"], button.form_list {
   width: 100%;
   margin: 0 auto;
   font-size: 1.05em;
@@ -473,7 +436,16 @@ input[type="submit"]:hover {
   border-top: 1px solid #2C3E50;
 }
 
-
+button.form_list {
+  border-top: 1px solid #2C3E50;
+  border-bottom: 1px solid #2C3E50;
+}
+.menu_list button.form_list:first-child {
+  border-radius: 6px 6px 0 0;
+}
+.menu_list button.form_list:last-child {
+  border-radius: 0 0 6px 6px;
+}
 /*
  *** IMAGES ***
  */
@@ -494,4 +466,47 @@ input[type="submit"]:hover {
   margin-bottom: 20px;
   color: #E74C3C;
   font-size: 2em;
+}
+
+/*
+ *** FOOTER ***
+ */
+.b_fixed {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+.form_footer_buttons {
+  font-weight: 400;
+  list-style-type: none;
+}
+.form_footer_buttons li a, .form_footer_buttons li span {
+  position: relative;
+  display: block;
+  padding: 15px 15px;
+  border-bottom: 1px solid #fff; /* Fallback */
+  border-bottom: 1px solid rgba(245,245,245,0.4);
+  background: #72CCA7;
+}
+.form_footer_buttons li span {
+  background: #16A085 url(images/cart.png) no-repeat left center;
+  padding-left: 55px;
+  color: #ECF0F1;
+}
+.form_footer_buttons li a:hover {
+  background: #339966;
+  color: #fff;
+}
+.form_footer_buttons li a:before {
+  content: '>';
+  position: absolute;
+  top: 7px;
+  right: 5px;
+  width: 17px;
+  height: 17px;
+  font: bold 18px/33px "Lato";
+}
+.form_footer_buttons li a:before:hover {
+  color: #fff;
 }

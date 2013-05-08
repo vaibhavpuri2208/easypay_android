@@ -14,36 +14,24 @@
 
 <body>
 	<div class="container">
-  		<header class="logo">
-    		//<a href="/"><img src="images/logo1.png" /></a>
-  		</header>
+		<header class="logo">
+  		<a href="index.html"><img src="images/logo1.png" /></a>
+		</header>
   
   	<section class="main">
-		<div class="">
-        <span class="left resource">
-        	<button id="beers" data-value="2.00" class="btn btn-primary btn-large btn-block">Beer (&euro; 2.00)</a>
-        </span>
-        <span class="right resource">
-         	<button id="pizza" data-value="4.00" class="btn btn-primary btn-large btn-block">Pizza (&euro; 4.00)</a>
-        </span>
-        <span class="left resource">
-        	<button id="burger" data-value="3.00" class="btn btn-primary btn-large btn-block">Burger (&euro; 3.00)</a>
-        </span>
-        <span class="right resource">
-        	<button id="sausage" data-value="2.00"  class="btn btn-primary btn-large btn-block">Sausage (&euro; 2.00)</a>
-        </span>
-    </div>
-    
-    
-    <br/><br/><br/>
-    
-    <h2 id="cartValue">Cart Empty</h2>
+    	<div class="menu_list">
+      	<button id="beers" data-value="2.00" class="form_list">Beer (&euro; 2.00)</button>
+      	<button id="burger" data-value="3.00" class="form_list">Burger (&euro; 3.00)</button>
+       	<button id="pizza" data-value="4.00" class="form_list">Pizza (&euro; 4.00)</button>
+      	<button id="sausage" data-value="2.00"  class="form_list">Sausage (&euro; 2.00)</button>
+    	</div>
     
     <br/><br/><br/><br/>
     <a href="#" id="refreshLink">Refresh</a>
     
     	<footer class="b_fixed">
   	  		<ul class="form_footer_buttons">
+  	  		  <li><span id="cartValue">Cart Empty</span></li>
   		  		<li><a href="#" id="pay">Pay</a></li>
   	  		</ul>
   		</footer>
