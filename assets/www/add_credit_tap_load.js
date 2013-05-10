@@ -8,10 +8,6 @@ function revertTransaction()
 
 }
 
-function test()
-{
-
-}
 
 
 
@@ -26,6 +22,7 @@ window.onload = function(){
 
 function onDeviceReady(){
 	var results = new Array();
+	var revertFlag = false;
 	results[0] = window.localStorage.getItem("existingValue");
 	results[1] = window.localStorage.getItem("topupValue");
 	results[2] = window.localStorage.getItem("newValue");
@@ -35,8 +32,10 @@ function onDeviceReady(){
     topupValue.innerHTML = "Top up Value: " + results[1];
     newValue.innerHTML = "New Credit: " + results[2];
 	
+	 //document.getElementById("revert").addEventListener("onChange", revertTransaction, false);
+	
 	//revertButton = document.getElementById('revert');
-	//revertButton.onclick= revertTransaction;
+	//revertButton.click(revertTransaction);
 		
   	  	
   
