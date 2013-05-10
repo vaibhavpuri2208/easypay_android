@@ -468,12 +468,18 @@ input[type="submit"]:hover, button:hover {
   border-top: 1px solid #2C3E50;
 }
 
+/* Store List */
 button.form_list {
   padding-left: 15px;
+  padding-right: 50px;
   border-top: 1px solid #2C3E50;
   border-bottom: 1px solid #2C3E50;
   background: #34495E;
   text-align: left;
+}
+button.form_list.selected_product {
+  background: #1ABC9C;
+  color: #1f2c39;
 }
 .menu_list button.form_list:first-child {
   border-radius: 6px 6px 0 0;
@@ -481,13 +487,26 @@ button.form_list {
 .menu_list button.form_list:last-child {
   border-radius: 0 0 6px 6px;
 }
-
-/* Store List */
 .quantity {
   margin-right: 10px;
   padding: 5px;
   border-radius: 6px;
   background: #2C3E50;
+}
+button.form_list.selected_product .quantity{
+  /* color: #fff; */
+  background: #16A085;
+}
+.delete_product {
+  position: absolute;
+  right: 10px;
+}
+.delete_product a {
+  padding: 2px 8px;
+  color: #fff;
+  font-size: 1.3em;
+  background: #C0392B;
+  border-radius: 50%;
 }
 /*
  *** IMAGES ***
