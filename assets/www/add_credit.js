@@ -7,11 +7,14 @@ function initialise_variables(){
 	initFlag=true;
 }
 
+    
+    
+
 
 function add_credit(credit){
   
   	total =  getURLParameter("topup_value");
-	total = error_handle_string(total);  
+	total =  error_handle_string(total);  
 
 	if (initFlag)
 	{
@@ -21,11 +24,23 @@ function add_credit(credit){
 	
 	payload = parseFloat(total) + credit;    
   	payload = payload.toString();
-        
-  	writeTag(payload);	
+    
+    
+    
+	window.location = "add_credit_tap_load.html";
+ 	
+ 	writeTag(payload);	
 
   	navigator.notification.alert("Existing Credit in Tag: "+ credit + "\n" + "Credit Added: "+total+"\n"+"Total Available Credit: "+payload);
+	window.localStorage.clear();
+	
+	window.localStorage.setItem("topupValue", total);
+    window.localStorage.setItem("existingValue", credit);
+    window.localStorage.setItem("newValue", payload);
+
+
 	initialise_variables();
+		
     }
 
 
@@ -48,3 +63,11 @@ function current_credit(nfcEvent){
 	
 	
 }
+
+function onDeviceReady() {
+  			nfc.addNdefListener(current_credit,successTagRead,failedTagRead);
+}		
+function onBodyLoad() {   
+    		document.addEventListener("deviceready", onDeviceReady, true);			
+}
+

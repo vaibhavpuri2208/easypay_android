@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" id="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		
+		<script type="text/javascript" charset="utf-8" src="phonegap-nfc.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script> 
+		<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 		
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		
+		<script type="text/javascript" charset="utf-8" src="add_credit_tap_load.js"></script>
+	
+		
+		<script type="text/javascript" charset="utf-8">
+  		function onBodyLoad(){
+      	document.addEventListener("deviceready", onDeviceReady, true);
+		
+		}
+		
+		
+	
+	</script>
+	
+	</head>
+
+ 
+<body onload="onBodyLoad();">
+<h4>In the Credit Tap Load Page </h4>
+
+	<h2 id="existingValue"></h2>
+
+	<h2 id="topupValue"></h2>
+	<h2 id="newValue"></h2>
+
+	<button id="revert">Revert</button>
+	<footer class="b_fixed">
+  	  	<ul class="form_footer_buttons">
+	  	  	<li><a href="index.html">Main Menu</a></li>		
+  	  	</ul>
+  	</footer>
+  	
+ </body>
+  	
+ </html>
