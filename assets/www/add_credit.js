@@ -7,8 +7,25 @@ function initialise_variables(){
 	initFlag=true;
 }
 
+
+
+//would prefer moving this to cookie.js
+function clearCookies(){
+  window.localStorage.clear();
+}
     
-    
+
+function setCookies(cookieName, cookieValue)
+{
+  var i, count;
+  count = cookieName.length;
+  
+  for(i=0; i<count; i++)
+    {
+      window.localStorage.setItem(cookieName[i], cookieValue[i]);
+    }
+
+}    
 
 
 function add_credit(credit){
@@ -32,18 +49,19 @@ function add_credit(credit){
  	writeTag(payload);	
 
   	navigator.notification.alert("Existing Credit in Tag: "+ credit + "\n" + "Credit Added: "+total+"\n"+"Total Available Credit: "+payload);
-	window.localStorage.clear();
 	
-	window.localStorage.setItem("topupValue", total);
-    window.localStorage.setItem("existingValue", credit);
-    window.localStorage.setItem("newValue", payload);
-
-
+	var cookieValue = [total, credit, payload];
+	var cookieName = ['topupValue','existingValue', 'newValue'];
+	
+	clearCookies();
+	setCookies(cookieName, cookieValue);
 	initialise_variables();
 		
     }
 
 
+	
+	
 
 
 function current_credit(nfcEvent){

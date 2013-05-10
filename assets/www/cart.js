@@ -1,9 +1,32 @@
 cartValue = 0;
 
+
+function clearCartQuantities()
+
+{
+  	// clearing the cart view quantities
+  	var buttons = document.getElementsByTagName('button');
+	var i;
+	for(i=0; i<buttons.length; i++)
+	{
+		var spans, y;
+		spans = buttons[i].getElementsByTagName('span');
+		for(y=0; y<spans.length; y++)
+			{
+			spans[y].innerText = "00";
+			} 
+	}  	
+
+
+}
+
 function refreshCart(){
 	cartValue =0;
 	cartBox = document.getElementById('cartValue');
-  	cartBox.innerHTML = "Cart Empty"; 
+  	cartBox.innerHTML = "Empty"; 
+	clearCartQuantities();  	
+  	
+
 }
 
 
@@ -43,6 +66,7 @@ function current_credit(nfcEvent){
 
 function onDeviceReady(){
 	pay.onclick = function(){nfc.addNdefListener(current_credit,successTagRead,failedTagRead);}
+	clearCartQuantities();
 }
 
 
@@ -52,6 +76,24 @@ function add_to_cart(increment){
   cartValue = cartValue +parseFloat(increment);
   cartBox = document.getElementById('cartValue');
   cartBox.innerHTML = "&euro;" + cartValue.toString();
+  
+  var newValueString= "";
+  var clickElement = event.target;
+  
+  currentSpan = clickElement.getElementsByTagName('span')[0];
+  var newValue = (parseFloat(currentSpan.innerText) + 1.00);
+  if (newValue<10)
+  	{
+  	newValueString = "0" + newValue.toString();
+  	}
+  	else
+  	{
+  	newValueString = newValue.toString();
+  	}
+  	
+  currentSpan.innerText = newValueString;
+  
+  
 }
 
 
@@ -71,6 +113,12 @@ function registerEvents() {
 	pizza.onclick = function(){add_to_cart(pizza.getAttribute('data-value'));}
 	burger.onclick = function(){add_to_cart(burger.getAttribute('data-value'));}
 	sausage.onclick = function(){add_to_cart(sausage.getAttribute('data-value'));}
+	soda.onclick = function(){add_to_cart(soda.getAttribute('data-value'));}
+	chocolate.onclick = function(){add_to_cart(chocolate.getAttribute('data-value'));}
+	
+	
+	
+	
 	refresh.onclick = refreshCart;
 	document.addEventListener("deviceready", onDeviceReady, true);
 

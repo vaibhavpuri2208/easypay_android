@@ -32,11 +32,10 @@ function onDeviceReady(){
     topupValue.innerHTML = "Top up Value: " + results[1];
     newValue.innerHTML = "New Credit: " + results[2];
 	
-	 //document.getElementById("revert").addEventListener("onChange", revertTransaction, false);
-	
+	//document.getElementById("revert").addEventListener("onChange", revertTransaction, false);
 	//revertButton = document.getElementById('revert');
 	//revertButton.click(revertTransaction);
-		
-  	  	
+			  	
+  	window.localStorage.clear();
   
 }

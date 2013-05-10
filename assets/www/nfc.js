@@ -83,3 +83,4 @@ function writeTag(payload)
     ndefMessage.push(ndefRecord);
     nfc.write(ndefMessage,successTagWrite, failedTagWrite );
 }
+
