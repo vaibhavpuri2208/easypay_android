@@ -1,9 +1,8 @@
 <html>
 	<head>
-	
-		<!-- Generic headers - stylessheets and JS files -->
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<meta name="viewport" id="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<!-- Generic headers - stylessheets and JS files -->
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<script type="text/javascript" charset="utf-8" src="phonegap-nfc.js"></script>
 		<script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script> 
@@ -19,28 +18,45 @@
 				
 			
     </script>
-  </head>
-  <body onload="onBodyLoad();">
-    <div class="container">
-	    <header class="logo">
-        <a href="index.html"><img src="images/logo1.png" /></a>
-		  </header>
 
-      <section class="main">
-        <form name="topup_form" onsubmit="onDeviceReady();" class="form-5 form-vert clearfix">
-    			<input id="add_credit_bt" type="text" name="topup_value" value="" placeholder="0.00"><br>
-    			<input type="submit" name="add_credit_button" value="Add Credit" >
-      	</form>
-      	
-      	<h1 id="user_messages" class="t_center m_bottom"></h1>
-      	
-      	<form id="add_credit" name="checkCredit_form" action="check_credit.html" class="form_list">
-      		<input type="submit" name="check_credit_button" value="Check Credit" >
-      	</form>
-      	<form id="payment_cart" action="cart.html" class="form_list">
-      		<input type="submit" name="cart_button" value="Payment Cart" >
-      	</form>    
-      </section>
-    </div>	
-</body>
+		<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 				
+		<!-- Specific Headers -->
+		<script type="text/javascript" charset="utf-8" src="add_credit.js"></script> 				
+  </head>
+  <body class="cbp-spmenu-push" onload="onBodyLoad();">
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+			<h3><a href="index.html"><img src="images/logo1.png" alt="logo" /></a></h3>
+			<a href="#" class="current">Add Credit</a>
+			<a href="check_credit.html">Check Credit</a>
+			<a href="cart.html">Store</a>
+			<a href="#">Logout</a>
+		</nav>
+		<header id="main_bar">
+		  <span id="section_title">Add Credit</span>
+			<span class="f-left button"><button id="showLeftPush"><i class="icon-reorder"></i></button></span>
+		</header>
+  
+    <section class="main">
+      <form name="topup_form" onsubmit="onDeviceReady();" class="form-5 form-vert clearfix">
+  			<input id="add_credit_bt" type="text" name="topup_value" value="" placeholder="0.00"><br>
+  			<input type="submit" name="add_credit_button" value="Add Credit" >
+    	</form>
+    	
+    	<h1 id="user_messages" class="t-center m-bottom"></h1>
+    </section>
+      
+    <script src="js/classie.js"></script>
+    <script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+				showLeftPush = document.getElementById( 'showLeftPush' ),
+				body = document.body;
+
+			showLeftPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toright' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeftPush' );
+			};
+		</script>
+  </body>
 </html>
