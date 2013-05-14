@@ -5,11 +5,29 @@ window.onload = function(){
 	}
 
 
+function clearCookies(){
+  window.localStorage.clear();
+}
+    
+
+function setCookies(cookieName, cookieValue)
+{
+  var i, count;
+  count = cookieName.length;
+  
+  for(i=0; i<count; i++)
+    {
+      window.localStorage.setItem(cookieName[i], cookieValue[i]);
+    }
+
+}    
+
+
 function update_message_box_again(message){
 
 			var messageBox = document.getElementById('creditBox');
   			messageBox.innerHTML = window.localStorage.getItem("creditValue");
-  			window.localStorage.clear();
+  			clearCookies();
   			
 }
 
@@ -20,7 +38,7 @@ function recheck_credit(nfcEvent){
 
 	try {
 	
-	window.localStorage.clear();
+	clearCookies();
 	
 	some_value = nfcEvent.tag.ndefMessage[0]['payload'];
 	

@@ -54,14 +54,14 @@ function add_credit(credit){
 	clearCookies();
 	setCookies(cookieName, cookieValue);
 	initialise_variables();
-	call_confirmation_page();
 	}
 
 
 	
 	
-function call_confirmation_page{
-	var ref = window.open("add_credit_confirmation.html");
+function call_confirmation_page(){
+	
+	var ref = window.open("add_credit_tap_load.html");
 
 }
 
@@ -83,9 +83,10 @@ function current_credit(nfcEvent){
 	
 }
 
+
 function onDeviceReady() {
-			var ref = window.open("add_credit_tap_load.html");
-  			nfc.addNdefListener(current_credit,successTagRead,failedTagRead);
+//  			nfc.addNdefListener(current_credit,successTagRead,failedTagRead);
+
 }		
 function onBodyLoad() {   
     		document.addEventListener("deviceready", onDeviceReady, true);			

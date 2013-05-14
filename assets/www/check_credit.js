@@ -3,6 +3,7 @@ function redirect_to_display_page(message)
 {
 		var ref = window.open("check_credit_result.html");
 		
+		
 		window.localStorage.setItem("creditValue", message);
 
 }
