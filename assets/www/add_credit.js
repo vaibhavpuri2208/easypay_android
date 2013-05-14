@@ -44,25 +44,26 @@ function add_credit(credit){
     
     
     
-	window.location = "add_credit_tap_load.html";
  	
  	writeTag(payload);	
 
-  	navigator.notification.alert("Existing Credit in Tag: "+ credit + "\n" + "Credit Added: "+total+"\n"+"Total Available Credit: "+payload);
-	
+  	
 	var cookieValue = [total, credit, payload];
 	var cookieName = ['topupValue','existingValue', 'newValue'];
 	
 	clearCookies();
 	setCookies(cookieName, cookieValue);
 	initialise_variables();
-		
-    }
+	call_confirmation_page();
+	}
 
 
 	
 	
+function call_confirmation_page{
+	var ref = window.open("add_credit_confirmation.html");
 
+}
 
 function current_credit(nfcEvent){
 
@@ -83,6 +84,7 @@ function current_credit(nfcEvent){
 }
 
 function onDeviceReady() {
+			var ref = window.open("add_credit_tap_load.html");
   			nfc.addNdefListener(current_credit,successTagRead,failedTagRead);
 }		
 function onBodyLoad() {   

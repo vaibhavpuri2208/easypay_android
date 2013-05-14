@@ -5,10 +5,10 @@
 		
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		
+		<script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script> 
+
 		<script type="text/javascript" charset="utf-8" src="phonegap-nfc.js"></script>
-		<!-- <script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script>  -->
 		<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 		
-		<script type="text/javascript" charset="utf-8" src="add_credit.js"></script> 		
 		<script type="text/javascript" charset="utf-8" src="check_credit.js"></script> 		
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
@@ -17,6 +17,7 @@
 		<script type="text/javascript" charset="utf-8">
   		function onDeviceReady() {
   			nfc.addNdefListener(check_credit,successTagRead,failedTagRead);
+  			
   		}		
     	function onBodyLoad() {   
     		document.addEventListener("deviceready", onDeviceReady, true);			
@@ -26,12 +27,12 @@
   <body class="cbp-spmenu-push" onload="onBodyLoad();">
   
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3><a href="index.html"><img src="images/logo1.png" alt="logo" /></a></h3>
-			<a href="add_credit.html">Add Credit</a>
-			<a href="#" class="current">Check Credit</a>
-			<a href="cart.html">Store</a>
-			<a href="#">Logout</a>
-		</nav>
+		<h3><a href="index.html"><img src="images/logo1.png" alt="logo" /></a></h3>
+		<a href="add_credit.html">Add Credit</a>
+		<a href="#" class="current">Check Credit</a>
+		<a href="cart.html">Store</a>
+		<a href="#">Logout</a>
+	</nav>
 		
 		<header id="main_bar">
 		  <span id="section_title">Check Credit</span>
@@ -39,6 +40,7 @@
 		</header>
   
     <section class="main">    
+    
       <div id="scan_wristband"></div>
   	</section>
     

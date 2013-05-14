@@ -28,7 +28,7 @@ function onDeviceReady(){
 	results[2] = window.localStorage.getItem("newValue");
 		
 	
-//	existingValue.innerHTML = "Existing Value: " + results[0];
+	//existingValue.innerHTML = "Existing Value: " + results[0];
     topupValue.innerHTML = "Top up Value: " + results[1];
     newValue.innerHTML = "New Credit: " + results[2];
 	

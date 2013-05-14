@@ -1,25 +1,18 @@
-window.onload = function ()
- {
-
-
-}
-
-function update_message_box(message)
+function redirect_to_display_page(message)
 
 {
-messageBox = document.getElementById('creditBox');
-
-messageBox.innerHTML= "Current credit: \n" +  message;
-tryAgainBox.innerHTML = "Tap another...";
-
+		var ref = window.open("check_credit_result.html");
+		
+		window.localStorage.setItem("creditValue", message);
 
 }
+
+
 
 
 function check_credit(nfcEvent){
 
 	try {
-	tryAgainBox.innerHTML = "";
 	
 	
 	some_value = nfcEvent.tag.ndefMessage[0]['payload'];
@@ -37,6 +30,6 @@ function check_credit(nfcEvent){
 	credit_message = "No Credit Found";   
 	}
 	
- 	update_message_box(credit_message);
+ 	redirect_to_display_page(credit_message);
 	
 }
