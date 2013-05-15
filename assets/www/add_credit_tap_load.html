@@ -9,11 +9,13 @@
 		<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 		
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<!-- Specific Headers -->
+		<!--<script type="text/javascript" charset="utf-8" src="add_credit_confirmation.js"></script>-->
 		<script type="text/javascript" charset="utf-8" src="add_credit_tap_load.js"></script>
+		
+		
+		
 		<script type="text/javascript" charset="utf-8">
-  		function onBodyLoad(){
-      	document.addEventListener("deviceready", onDeviceReady, true);
-      }
+  	
     </script>
 	</head>
 
@@ -33,7 +35,7 @@
     <section class="main">
       <div class="t-center m-bottom">
         <p>You're about to add:</p>
-        <h1 id="existingValue" class="positive_credit">€ 100.00</h1>
+        <h1 id="topupValue" class="positive_credit">€ 100.00</h1>
       </div>
       
       <div id="scan_tap_to_load"></div>
@@ -49,7 +51,7 @@
 				classie.toggle( this, 'active' );
 				classie.toggle( body, 'cbp-spmenu-push-toright' );
 				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
+			//	disableOther( 'showLeftPush' );
 			};
 		</script>
    </body>

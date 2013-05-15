@@ -4,19 +4,14 @@
 		<meta name="viewport" id="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<!-- Generic headers - stylessheets and JS files -->
 		<link rel="stylesheet" type="text/css" href="style.css" />
-		<script type="text/javascript" charset="utf-8" src="phonegap-nfc.js"></script>
 		<script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script> 
+		<script type="text/javascript" charset="utf-8" src="phonegap-nfc.js"></script>
 		<script type="text/javascript" charset="utf-8" src="nfc.js"></script> 		
-		<script type="text/javascript" charset="utf-8" src="add_credit_confirmation.js"></script> 		
 		
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<!-- Specific Headers -->
-		<script type="text/javascript" charset="utf-8" src="add_credit_tap_load.js"></script>
-		<script type="text/javascript" charset="utf-8">
-  		function onBodyLoad(){
-      	document.addEventListener("deviceready", onDeviceReady, true);
-      }
-    </script>
+		<script type="text/javascript" charset="utf-8" src="add_credit_confirmation.js"></script> 		
+	
 	</head>
 
   <body class="cbp-spmenu-push" onload="onBodyLoad();">
@@ -44,9 +39,11 @@
       </div>
       
       <div class="m-top2">
+        <!--
         <form id="add_credit" action="" class="form_list">
       		<input id="revert" type="submit" name="add_credit_button" value="Revert Transaction" >
       	</form>
+      	-->
         <form id="payment_cart" action="add_credit.html" class="form_list">
       		<input type="submit" name="add_credit_button" value="Go Back" >
       	</form>

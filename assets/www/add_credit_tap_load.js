@@ -1,41 +1,80 @@
-function revertTransaction()
+
+
+
+
+//would prefer moving this to cookie.js
+function clearCookies(){
+  window.localStorage.clear();
+}
+    
+
+function setCookies(cookieName, cookieValue)
 {
+  var i, count;
+  count = cookieName.length;
+  
+  for(i=0; i<count; i++)
+    {
+      window.localStorage.setItem(cookieName[i], cookieValue[i]);
+    }
+
+}    
+
+
+function add_credit(credit){
+  
+  	var topupValue =  window.localStorage.getItem("topupValue");
 	
-	navigator.notificiation.alert("in revert function");
+	//topupValue =  error_handle_string(topupValue);  
+
 	
- 	writeTag("100");	
+
+	payload = parseFloat(topupValue) + credit;    
+  	payload = payload.toString();
+    
+ 	writeTag(payload);	
+
+  	
+	var cookieValue = [topupValue, credit, payload];
+	var cookieName = ['topupValue','existingValue', 'newValue'];
+	
+	clearCookies();
+	//setCookies(cookieName, cookieValue);
+	window.localStorage.setItem("newValue", payload);
+	window.localStorage.setItem("topupValue", topupValue);
+
+	var newWindow = window.open("add_credit_confirmation.html", '_self', 'location=no');
+	}
+
+
+function current_credit(nfcEvent){
+
+	try {
+
+	tag_payload = nfcEvent.tag.ndefMessage[0]['payload'];
+
+	credit = nfcTagStringTasks(tag_payload);
+
+	}
+	catch (e) {
+	credit = "0";   
+	}
+
+ 	add_credit(parseFloat(credit));
 
 
 }
 
 
-
-
-window.onload = function(){
-	
-}
-
-
-
-
-
-
-function onDeviceReady(){
-	var results = new Array();
-	var revertFlag = false;
-	results[0] = window.localStorage.getItem("existingValue");
-	results[1] = window.localStorage.getItem("topupValue");
-	results[2] = window.localStorage.getItem("newValue");
+function onDeviceReady() {
+		topupValue.innerHTML = window.localStorage.getItem("topupValue");
+		nfc.addNdefListener(current_credit,successTagRead,failedTagRead);
 		
 	
-//	existingValue.innerHTML = "Existing Value: " + results[0];
-    topupValue.innerHTML = "Top up Value: " + results[1];
-    newValue.innerHTML = "New Credit: " + results[2];
-	
-	//document.getElementById("revert").addEventListener("onChange", revertTransaction, false);
-	//revertButton = document.getElementById('revert');
-	//revertButton.click(revertTransaction);
-			  	
-  	window.localStorage.clear();
-  
+}		
+
+
+	function onBodyLoad(){
+      	document.addEventListener("deviceready", onDeviceReady, true);
 }
+

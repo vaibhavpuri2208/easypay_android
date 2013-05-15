@@ -1,41 +1,36 @@
-function revertTransaction()
-{
-	
-	navigator.notificiation.alert("in revert function");
-	
- 	writeTag("100");	
 
+function reDrawForm(){
 
-}
-
-
-
-
-window.onload = function(){
-	
-}
-
-
-
-
-
-
-function onDeviceReady(){
 	var results = new Array();
 	var revertFlag = false;
 	results[0] = window.localStorage.getItem("existingValue");
 	results[1] = window.localStorage.getItem("topupValue");
 	results[2] = window.localStorage.getItem("newValue");
-		
+
+	
+	var newValue = document.getElementById("newValue");		
+	var topupValue = document.getElementById("topupValue");		
+
 	
 	//existingValue.innerHTML = "Existing Value: " + results[0];
-    topupValue.innerHTML = "Top up Value: " + results[1];
-    newValue.innerHTML = "New Credit: " + results[2];
+    topupValue.innerHTML =results[1];
+    newValue.innerHTML =  results[2];
 	
-	//document.getElementById("revert").addEventListener("onChange", revertTransaction, false);
-	//revertButton = document.getElementById('revert');
-	//revertButton.click(revertTransaction);
 			  	
   	window.localStorage.clear();
-  
+
+
+
+}
+
+
+
+function onDeviceReady(){
+  reDrawForm();
+}
+
+
+
+function onBodyLoad(){
+      	document.addEventListener("deviceready", onDeviceReady, false);
 }
